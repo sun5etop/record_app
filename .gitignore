@@ -27,7 +27,6 @@ target/
 
 ### JRebel ###
 rebel.xml
-
 ### NetBeans ###
 nbproject/private/
 build/*
