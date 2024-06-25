@@ -75,7 +75,7 @@ public class SocialSecService {
         String tokenT = URLDecoder.decode(token, "UTF-8");
         Map result = new HashMap();
         List funcParam = new ArrayList();
-        funcParam.add("0xb0df8a1aeec0a539ce55aaa83840944dbe40aba3");
+        funcParam.add("0xae13e5633069c21ba98aea1599125a667b6cdd62");
         QueryWrapper<User> getSocialSec = new QueryWrapper<>();
         getSocialSec.eq("username", tokenT);
         User socialSec = userMapper.selectOne(getSocialSec);
@@ -87,9 +87,15 @@ public class SocialSecService {
         String resolve = response.substring(3, response.length() - 3);
 //        resolve = resolve.trim();
 //        resolve = resolve.substring(1,resolve.length()-1);
-        List<String> addressList = Arrays.asList(resolve.replace("\\\"", "").split(","));
+        List<String> addressList1 = Arrays.asList(resolve.replace("\\\"", "").split("\\s|,|\\s"));
 //        List<String> addressList = Arrays.asList(AllAddress.split(","));
 //        List<Company> companyList = new ArrayList<>();
+        List<String> addressList=new ArrayList<>();
+        for(String str:addressList1){
+            if(!str.isEmpty()){
+                addressList.add(str);
+            }
+        }
         JSONArray allList = new JSONArray();
         for (int i = 0; i < addressList.size(); i++) {
 //            QueryWrapper<Company> queryWrapper = new QueryWrapper<>();
@@ -169,6 +175,7 @@ public class SocialSecService {
         String tokenT = URLDecoder.decode(token, "UTF-8");
 //        Map result = new HashMap();
         List funcParam = new ArrayList();
+        funcParam.add("0xae13e5633069c21ba98aea1599125a667b6cdd62");
         QueryWrapper<User> getSocialSec = new QueryWrapper<>();
         getSocialSec.eq("username", tokenT);
         User socialSec = userMapper.selectOne(getSocialSec);
@@ -176,7 +183,7 @@ public class SocialSecService {
         if (response.equals("[\"[ ]\"]")) {
             return Result.error("这个社保局还没有公司");
         }
-        String resolve = response.substring(3, response.length() - 3);
+        String resolve = response.substring(6, response.length() - 6);
         List<String> addressList = Arrays.asList(resolve.replace("\\\"", "").split(","));
         JSONArray allList = new JSONArray();
         for (int i = 0; i < addressList.size(); i++) {
@@ -187,7 +194,12 @@ public class SocialSecService {
             return Result.error("这个公司没有人缴纳社保");
         }
             response1 = response1.substring(3, response1.length() - 3);
-            List<String> AllIndex = Arrays.asList(response1.split(","));
+            List<String> AllIndex1 = Arrays.asList(response1.split("\\s|,|\\s"));
+            List<String> AllIndex = new ArrayList<>();
+            for(String str: AllIndex1){
+                if(!str.isEmpty())
+                    AllIndex.add(str);
+            }
             for (int j = 0; j < AllIndex.size(); j++) {
             List funcParam2 = new ArrayList();
             funcParam2.add(AllIndex.get(j).trim());

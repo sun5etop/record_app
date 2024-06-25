@@ -57,11 +57,12 @@ public class CompanyService {
         queryWrapper.eq("username",tokenT);
         User user = userMapper.selectOne(queryWrapper);
         List funcParams = new ArrayList();
+        funcParams.add("0x3860dc28008fb6520bd39b3fff311344e108f0fd");
         String response  = HttpUtils.commonReq(user.getAddress(),"getLaodAllCompany",funcParams);
         if (Objects.equals(response, "[\"[ ]\"]")){
             return Result.error("该社保局还没有公司哦");
         }
-        String resolve = response.substring(3, response.length() - 3);
+        String resolve = response.substring(6, response.length() - 6);
         List<String> addressList = Arrays.asList(resolve.replace("\\\"", "").split(","));
         JSONArray allList = new JSONArray();
         for (int i = 0; i < addressList.size(); i++) {
@@ -91,8 +92,9 @@ public class CompanyService {
         queryWrapper.eq("username",tokenT);
         User user = userMapper.selectOne(queryWrapper);
         List funcParams = new ArrayList();
+        funcParams.add("0x3860dc28008fb6520bd39b3fff311344e108f0fd"); //Alice
         String response  = HttpUtils.commonReq(user.getAddress(),"getLaodAllCompany",funcParams);
-        String resolve = response.substring(3, response.length() - 3);
+        String resolve = response.substring(6, response.length() - 6);
 //        resolve = resolve.trim();
 //        resolve = resolve.substring(1,resolve.length()-1);
         List<String> addressList = Arrays.asList(resolve.replace("\\\"", "").split(","));
@@ -108,7 +110,13 @@ public class CompanyService {
 //                System.out.println("\u001B[34m[INFO]: 本轮进入 Continue\u001B[0m");
                 continue;
             }
-            List<String> allPer = Arrays.asList(all.substring(3, all.length() - 3).split(","));
+            List<String> allPer1 = Arrays.asList(all.substring(3, all.length() - 3).split("\\s|,|\\s"));
+            List<String> allPer = new ArrayList<>();
+            for(String str:allPer1){
+                if(!str.isEmpty()){
+                    allPer.add(str);
+                }
+            }
 //            System.out.println("AllPer:"+allPer);
 //            ColorFul.print("[INFO]:本轮AllPer"+allPer, ColorFul.BLUE);
 //            System.out.println("[INFO]:本轮get(0)"+allPer.get(0));
