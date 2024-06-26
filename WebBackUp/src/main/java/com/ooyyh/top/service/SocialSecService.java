@@ -75,7 +75,8 @@ public class SocialSecService {
         String tokenT = URLDecoder.decode(token, "UTF-8");
         Map result = new HashMap();
         List funcParam = new ArrayList();
-        funcParam.add("0xae13e5633069c21ba98aea1599125a667b6cdd62");
+        //社保局地址
+        funcParam.add("0x5cd5bffca9dd7f897210cd059f5a690d17471e3e");
         QueryWrapper<User> getSocialSec = new QueryWrapper<>();
         getSocialSec.eq("username", tokenT);
         User socialSec = userMapper.selectOne(getSocialSec);
@@ -175,7 +176,8 @@ public class SocialSecService {
         String tokenT = URLDecoder.decode(token, "UTF-8");
 //        Map result = new HashMap();
         List funcParam = new ArrayList();
-        funcParam.add("0xae13e5633069c21ba98aea1599125a667b6cdd62");
+        //社保局地址
+        funcParam.add("0x5cd5bffca9dd7f897210cd059f5a690d17471e3e");
         QueryWrapper<User> getSocialSec = new QueryWrapper<>();
         getSocialSec.eq("username", tokenT);
         User socialSec = userMapper.selectOne(getSocialSec);

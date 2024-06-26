@@ -59,7 +59,16 @@ public class PensionService {
         funcParam.add(user.getId());
         String pensionInfo = HttpUtils.commonReq("getPayMentById",funcParam);
         pensionInfo = pensionInfo.substring(3,pensionInfo.length()-3);
-        List<String> AllIndex = Arrays.asList(pensionInfo.split(","));
+        List<String> AllIndex1 = Arrays.asList(pensionInfo.split("//s|,|//s"));
+        List<String> AllIndex=new ArrayList<>();
+        for(String str:AllIndex1){
+            if(" ".equals(str)) {
+                continue;
+            }
+            if(!str.isEmpty()) {
+                AllIndex.add(str);
+            }
+        }
 
         JSONArray allList = new JSONArray();
         for (int i = 0; i < AllIndex.size(); i++) {

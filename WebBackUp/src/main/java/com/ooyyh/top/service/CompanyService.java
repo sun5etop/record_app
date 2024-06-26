@@ -57,7 +57,8 @@ public class CompanyService {
         queryWrapper.eq("username",tokenT);
         User user = userMapper.selectOne(queryWrapper);
         List funcParams = new ArrayList();
-        funcParams.add("0x3860dc28008fb6520bd39b3fff311344e108f0fd");
+        //劳动局的地址
+        funcParams.add("0xb744c9b191fd363b021b311d71494290b0f2ba93");
         String response  = HttpUtils.commonReq(user.getAddress(),"getLaodAllCompany",funcParams);
         if (Objects.equals(response, "[\"[ ]\"]")){
             return Result.error("该社保局还没有公司哦");
@@ -92,7 +93,8 @@ public class CompanyService {
         queryWrapper.eq("username",tokenT);
         User user = userMapper.selectOne(queryWrapper);
         List funcParams = new ArrayList();
-        funcParams.add("0x3860dc28008fb6520bd39b3fff311344e108f0fd"); //Alice
+        //劳动局的地址
+        funcParams.add("0xb744c9b191fd363b021b311d71494290b0f2ba93"); //Alice
         String response  = HttpUtils.commonReq(user.getAddress(),"getLaodAllCompany",funcParams);
         String resolve = response.substring(6, response.length() - 6);
 //        resolve = resolve.trim();
@@ -207,7 +209,16 @@ public class CompanyService {
         funcParam.add(company.getCompanyAddress());
         String response = HttpUtils.commonReq(company.getCompanyAddress(),"getCompanyPayMentAllIndex",funcParam);
         response = response.substring(3, response.length() - 3);
-        List<String> AllIndex = Arrays.asList(response.split(","));
+        List<String> AllIndex1 = Arrays.asList(response.split("\\s|,|\\s"));
+        List<String> AllIndex=new ArrayList<>();
+        for(String str:AllIndex1){
+            if(!" ".equals(str)){
+                continue;
+            }
+            if(!str.isEmpty()){
+                AllIndex.add(str);
+            }
+        }
         JSONArray allInsurance = new JSONArray();
         for (int i = 0; i < AllIndex.size(); i++) {
             List funcParam1 = new ArrayList();
