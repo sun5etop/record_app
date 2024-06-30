@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import login from '../views/login/login.vue'
+import adminIndex from "@/views/admin/adminIndex.vue";
+import recordAdmin from "@/views/admin/recordAdmin.vue";
+import transactionAdmin from "@/views/admin/transactionAdmin.vue";
+import repository from "@/views/account/repository.vue";
+import transaction from "@/views/account/transaction.vue";
+import accountIndex from "@/views/account/accountIndex.vue";
 // import reister from '../views/register.vue'
 
 const router = createRouter({
@@ -11,10 +17,58 @@ const router = createRouter({
       component: login
     },
     {
+      path: '/admin/adminIndex',
+      name: 'adminIndex',
+      component: adminIndex
+    },
+    {
+      path: '/admin/recordAdmin',
+      name: 'recordAdmin',
+      component: recordAdmin
+    },
+    {
+      path: '/admin/transactionAdmin',
+      name: 'transactionAdmin',
+      component: transactionAdmin
+    },
+    {
       path:'/register',
       name:'register',
       component: () => import('../views/login/register.vue')
     },
+    {
+      path:'/account/repository',
+      name:'repository',
+      component: repository
+    },
+    {
+      path:'/account/accountIndex',
+      name:'accountIndex',
+      component:  accountIndex,
+      meta:{
+        title: '唱片主页'
+      }
+    },
+    {
+      path:'/account/transaction',
+      name:'transaction',
+      component: transaction
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {path:'/gongan',
       name:'gongan',
       component: () => import('../views/gongAn.vue')

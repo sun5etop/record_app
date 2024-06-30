@@ -1,21 +1,14 @@
 <template>
   <div class="login-center">
     <div class="login-container">
-      <h2 style="text-align: center;">Forya养老保险系统</h2>
+      <h2 style="text-align: center;">MineRecord 唱片数字平台</h2>
+      <h5 style="text-align: center;">登录</h5>
       <el-form :model="this.loginForm" class="login-form"  label-width="auto">
-        <el-form-item label="用户类型" prop="userType" >
-            <el-select v-model="loginForm.userType" placeholder="选择用户">
-                <el-option v-for="item in this.users" :value="item.value" :label="item.label" :key="item.value" />
-            </el-select>
+        <el-form-item label="用户id"  prop="accountId" class="login-form-item" >
+          <el-input v-model="loginForm.accountId" placeholder="请输入用户名"></el-input>
         </el-form-item>
-        <el-form-item label="用户名" prop="username" class="login-form-item" v-if="loginForm.userType!='4'">
-          <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password" class="login-form-item" v-show="loginForm.userType!='4' && this.loginForm.userType!='5'">
+        <el-form-item label="密码" prop="password" class="login-form-item" >
           <el-input v-model="this.loginForm.password" placeholder="请输入密码" show-password></el-input>
-        </el-form-item>
-        <el-form-item label="区块链地址" v-show="loginForm.userType=='4' || loginForm.userType=='5'">
-          <el-input v-model="this.loginForm.address" />
         </el-form-item>
         <!-- <el-form-item label="用户类型" prop="userType" >
             <el-select v-model="loginForm.userType" placeholder="选择用户">
@@ -51,41 +44,30 @@ export default {
   },
   methods:{
     login(){
-      if(this.loginForm.userType=="4"){
-        console.log("nihao")
-        localStorage.setItem('userAddress',this.loginForm.address);
-        this.$router.push('/gongan');
-        this.$message({
-            type:"success",
-            message:"登录成功"
-            })
-      }else{
-        request.post('/user/login',this.loginForm).then((res)=>{
+        request.post('/account/login',this.loginForm).then((res)=>{
         if(res.code==200){
           this.$message({
             type:"success",
             message:res.msg
             })
-           localStorage.setItem('username',this.loginForm.username);
-           localStorage.setItem('userType',this.loginForm.userType);
-           if(this.loginForm.userType=="3"){
-            console.log("zaizhe");
-              this.$router.push('/SocialSDeptHome');
-           }
-           if(this.loginForm.userType=="2"){
-            console.log("zaizhe");
-              this.$router.push('/laborHome');
-           }
-           if(this.loginForm.userType=="1"){
-            console.log("zaizhe");
-              this.$router.push('/personHome');
-           }
-           if(this.loginForm.userType=="5"){
-            console.log("zaizhe");
-            localStorage.setItem('userAddress',this.loginForm.address);
-            this.$router.push('/companyHome');
-           }
-        }else{
+           localStorage.setItem('accountId',this.loginForm.accountId);
+           localStorage.setItem('ownerName',res.msg);
+            console.log("登录成功，进入账户首页");
+/*            localStorage.setItem('userAddress',this.loginForm.address);*/
+            this.$router.push('/account/accountIndex');
+        }
+        else if(res.code==201){
+          this.$message({
+            type:"success",
+            message:res.msg
+          })
+          localStorage.setItem('accountId',this.loginForm.accountId);
+          localStorage.setItem('ownerName',res.msg);
+          console.log("管理员登录成功，进入管理员账户首页");
+          /*            localStorage.setItem('userAddress',this.loginForm.address);*/
+          this.$router.push('/admin/adminIndex');
+        }
+        else{
           this.$message({
             type:"warning",
             message:res.msg
@@ -93,7 +75,7 @@ export default {
         }
         console.log(res);
       })
-      }
+
       
       // console.log("ea easd")
       // this.$refs.loginForm.validate((valid) => {
@@ -111,13 +93,13 @@ export default {
   },
   setup() {
     const loginForm =ref({
-      username: '',
-      password: ''
+      password: '',
+      accountId:'',
     });
     // const gongan="";
     const rules = {
-      username: [
-        { required: true, message: '请输入用户名', trigger: 'blur' }
+      accountId: [
+        { required: true, message: '请输入账户id', trigger: 'blur' }
       ],
       password: [
         { required: true, message: '请输入密码', trigger: 'blur' }
@@ -127,13 +109,13 @@ export default {
       loginForm,
       rules,
       // gongan,
-      users:[{value:'1',
-            label:'普通个人'},
-            {value:'2',
-            label:'劳动局'},
-        {value:'3',label:'社保局'},
-      {value:'4',label:'公安'},
-      {value:'5',label:'公司'}]
+      // account:[{value:'1',
+      //       label:'普通个人'},
+      //       {value:'2',
+      //       label:'劳动局'},
+      //   {value:'3',label:'社保局'},
+      // {value:'4',label:'公安'},
+      // {value:'5',label:'公司'}]
     };
   }
 };
@@ -152,13 +134,16 @@ export default {
   .login-container {
     width: 400px;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .login-form {
     margin-top: 20px;
+  }
+  .login-form-item label{
+    color:black;
   }
 
   .login-register-item {

@@ -37,12 +37,12 @@ public class SecurityController {
         return result;
     }
 
-    @GetMapping(value = "/getAllPerson")
-    @ResponseBody
-    public Map getAllPerson(@RequestHeader String userAddress){
-        Map result = securityService.getAllPerson(userAddress);
-        ColorFul.print(result.toString(), ColorFul.RED);
-        return result;
-    }
+//    @GetMapping(value = "/getAllPerson")
+//    @ResponseBody
+//    public Map getAllPerson(@RequestHeader String userAddress){
+//        Map result = securityService.getAllPerson(userAddress);
+//        ColorFul.print(result.toString(), ColorFul.RED);
+//        return result;
+//    }
 
 }

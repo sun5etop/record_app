@@ -27,6 +27,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .addPathPatterns("/seal/**")
                 .excludePathPatterns(excludePath);
         //除了登陆接口其他所有接口都需要token验证
-        WebMvcConfigurer.super.addInterceptors(registry);
+        //WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

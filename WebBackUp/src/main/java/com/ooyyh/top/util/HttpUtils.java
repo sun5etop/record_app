@@ -93,6 +93,23 @@ public class HttpUtils {
         }
     }
 
+    public static String createPrivateKey(String userName){
+        JSONObject data=new JSONObject();
+        try {
+            //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), data.toJSONString());
+            Request request = new Request.Builder()
+                    .url("http://localhost:5002/WeBASE-Front/privateKey?type=0&userName="+userName+"&groupId=group0")
+                    .get() //post请求
+                    .build();
+            final Call call = client.newCall(request);
+            Response response = call.execute();
+            return response.body().string();
+        }catch (IOException exception){
+            System.out.println(exception.getMessage());
+            return exception.getMessage();
+        }
+
+    }
     /**
      * 写合约
      * @param userAddress 用户地址

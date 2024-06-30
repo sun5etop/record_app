@@ -1,21 +1,86 @@
 package com.ooyyh.top.service;
 
+import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.ooyyh.top.dao.RecordInfoMapper;
+import com.ooyyh.top.dao.RecordMapper;
 import com.ooyyh.top.dao.SecurityMapper;
-import com.ooyyh.top.entity.Person;
-import com.ooyyh.top.entity.User;
+import com.ooyyh.top.entity.*;
 import com.ooyyh.top.util.HttpUtils;
 import com.ooyyh.top.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
-public class SecurityService {
+public class SecurityService implements CommandLineRunner {
+    private static int maxRecordId;
+
+    private static int maxDropId;
+
     @Autowired
     SecurityMapper securityMapper;
+
+    @Autowired
+    RecordMapper recordMapper;
+
+    @Autowired
+    RecordInfoMapper recordInfoMapper;
+
+    public int getMaxRecordId(){
+        return maxRecordId;
+    }
+    public int getMaxDropId(){
+        return maxDropId;
+    }
+    public void plusDropId(){
+        maxDropId++;
+    }
+
+    public Map addRecords(int num, int type) {
+        Map result = new HashMap();
+        //唱片发行日期
+        String date= DateUtil.date().toDateStr();
+        QueryWrapper<RecordInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("record_type", type);
+        if(recordInfoMapper.selectOne(queryWrapper) == null){
+            result.put("code", "500");
+            result.put("msg", "没有该唱片类型！");
+            result.put("data", null);
+            return result;
+        }
+
+        List funcParam = new ArrayList();
+        funcParam.add(num);
+        funcParam.add(type);
+        funcParam.add(date);
+        //发行专辑成功，内部的recordIndex全局变量改变
+        //JSONObject data = (JSONObject) JSONObject.parse(HttpUtils.commonReq("addRecords",funcParam));
+        String data = HttpUtils.commonReq("addRecords",funcParam);
+
+        List funcParamGetIndex =new ArrayList();
+        String retdata =HttpUtils.commonReq("getNowrecordIndex",funcParamGetIndex);
+        String temp = retdata.substring(2, retdata.length() - 2);
+        int recordIndex = Integer.parseInt(temp);
+        maxRecordId=recordIndex;
+
+        for(int id = recordIndex-num;id<=recordIndex;id++){
+            Record record = new Record(id, type, date, "");
+            recordMapper.insert(record);
+
+        }
+
+        result.put("code","200");
+        result.put("msg","添加唱片成功~");
+        result.put("data",null);
+
+        return result;
+
+    }
+
     public Map addPerson(String userAddress, Person person) {
         Map result = new HashMap();
         List funcParam = new ArrayList();
@@ -35,6 +100,29 @@ public class SecurityService {
             securityMapper.insert(person);
             return result;
         }
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        //初始化已有唱片id最大值
+        List funcParamGetIndex =new ArrayList();
+        String retdata =HttpUtils.commonReq("getNowrecordIndex",funcParamGetIndex);
+        String temp = retdata.substring(2, retdata.length() - 2);
+        int recordIndex = Integer.parseInt(temp);
+        maxRecordId=recordIndex;
+
+        //初始化已掉落id最大值
+        QueryWrapper<Record> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("record_owner_id","");
+        List<Record> records = recordMapper.selectList(queryWrapper);
+        int minId = Integer.MAX_VALUE;
+        for (Record record : records) {
+            if (record.getRecordId() < minId) {
+                minId = record.getRecordId();
+            }
+        }
+        maxDropId=minId;
+
     }
 //    public List<Person> getAllPerson(String userAddress) {
 //        List<Person> userList = new ArrayList<>();
@@ -74,35 +162,22 @@ public class SecurityService {
 //        return userList;
 //    }
 
-    public Map getAllPerson(String userAddress) {
-        Map result = new HashMap();
-        List<Person> userList = new ArrayList<Person>();
-        List funcParam = new ArrayList();
-        funcParam.add(userAddress);
-        String data = HttpUtils.commonReq(userAddress,"getAllPersonId",funcParam);
-//        System.out.println(data); // data => [1,2]
-        List<String> idList1 = Arrays.asList((data.substring(3, data.length() - 3)).split("[\\s|,\\s]"));
-        List<String> idList = new ArrayList<>();
-
-        for(String str:idList1){
-            if(!str.isEmpty()){
-                idList.add(str);
-            }
-        }
-
-//        System.out.println(idList.get(0));
-        for (int i = 0; i < idList.size(); i++) {
-//            System.out.println(i);
-            QueryWrapper<Person> queryWrapper = new QueryWrapper<Person>();
-            queryWrapper.eq("id",idList.get(i));
-            Person onUser = securityMapper.selectOne(queryWrapper);
-            userList.add(onUser);
-        }
-        result.put("code","200");
-        result.put("msg","查询成功");
-        result.put("data",userList);
-        return result;
-
-
-    }
+//    public Map getAllRecord() {
+//        Map result = new HashMap();
+//        List<Record> userList = new ArrayList<Record>();
+//
+////        System.out.println(idList.get(0));
+//        for (int i = 0; i < idList.size(); i++) {
+////            System.out.println(i);
+//            QueryWrapper<Person> queryWrapper = new QueryWrapper<Person>();
+//            queryWrapper.eq("id",idList.get(i));
+//            Person onUser = securityMapper.selectOne(queryWrapper);
+//            userList.add(onUser);
+//        }
+//        result.put("code","200");
+//        result.put("msg","查询成功");
+//        result.put("data",userList);
+//        return result;
+//
+//    }
 }

@@ -4,21 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282be33d-f664-4580-98ce-461af97befc9" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/PensionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/PensionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SocialSecService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SocialSecService.java" afterDir="false" />
+    <list default="true" id="dd36f2bf-bbb5-45e4-952b-85ff494dfa58" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/dao/RecordInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/dao/RecordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/dao/TransactionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/entity/Record.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/entity/RecordInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/entity/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/TransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebFrontUp/src/views/account/transaction.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebFrontUp/src/views/admin/adminIndex.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebFrontUp/src/views/admin/recordAdmin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebFrontUp/src/views/admin/transactionAdmin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBackUp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/config/InterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SecurityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/util/HttpUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/ca.crt" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/ca.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/sdk.crt" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/sdk.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/sdk.key" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/resources/conf/sdk.key" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/sql/ElectronicSeal.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/assets/backup.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/assets/backup.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/components/HeaderV.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/components/HeaderV.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebFrontUp/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/login/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/login/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/login/register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,42 +54,153 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2iNdrqLupNuOulXcnNUPzOBUuaa" />
+  <component name="ProjectId" id="2iQAPzfVxXHuHzBpGGmcvpI9YGM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.backend [clean].executor": "Run",
-    "Maven.backend [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.BackendApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl.localhost/Ubuntu-22.04/home/lumang/0625/record_app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AccountTest.acceptTransaction.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AccountTest.addAccountRecord.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.addRecordsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.drop.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.getAccountAllRecordsTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AccountTest.getAllAccountsTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AccountTest.loginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.publishTransactionTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AccountTest.registerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.registermaijiaTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountTest.saveTransaction.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AccountTest.saveTransactionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [site].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [test].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu-22.04/home/lumang/0625/record_app/WebFrontUp/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebBackUp\src\main\resources\sql" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\public" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\src\assets" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\src\views\account" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\src\components" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebBackUp\src\main\java\com\ooyyh\top\entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\src\router" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\lumang\0625\record_app\WebFrontUp\src\views\admin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ooyyh.top.service" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
+    <configuration name="AccountTest.addAccountRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
+      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
+      <option name="METHOD_NAME" value="addAccountRecord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.addRecordsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
+      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
+      <option name="METHOD_NAME" value="addRecordsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.drop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
+      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
+      <option name="METHOD_NAME" value="drop" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
+      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
+      <option name="METHOD_NAME" value="registerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.registermaijiaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
+      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
+      <option name="METHOD_NAME" value="registermaijiaTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ooyyh.top.BackendApplication" />
@@ -73,6 +208,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AccountTest.drop" />
+        <item itemvalue="JUnit.AccountTest.addRecordsTest" />
+        <item itemvalue="JUnit.AccountTest.registerTest" />
+        <item itemvalue="JUnit.AccountTest.addAccountRecord" />
+        <item itemvalue="JUnit.AccountTest.registermaijiaTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -84,18 +228,53 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="282be33d-f664-4580-98ce-461af97befc9" name="更改" comment="" />
-      <created>1719335169837</created>
+      <changelist id="dd36f2bf-bbb5-45e4-952b-85ff494dfa58" name="更改" comment="" />
+      <created>1719412408338</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1719335169837</updated>
-      <workItem from="1719335170912" duration="7563000" />
-      <workItem from="1719385648937" duration="2976000" />
-      <workItem from="1719392439092" duration="60000" />
+      <updated>1719412408338</updated>
+      <workItem from="1719412410891" duration="21154000" />
+      <workItem from="1719468590943" duration="4476000" />
+      <workItem from="1719473078255" duration="7611000" />
+      <workItem from="1719485616659" duration="54431000" />
+      <workItem from="1719546777641" duration="9832000" />
+      <workItem from="1719752930303" duration="3435000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/AccountController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/TransactionService.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
