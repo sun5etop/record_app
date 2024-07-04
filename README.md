@@ -1,38 +1,23 @@
-# fisco-bcos区块链养老保险项目
+# fisco-bcos区块链MineRecord数字唱片平台
 
-本项目是一个基于FISCO-BCOS区块链的养老保险项目，使用Solidity 0.4.25编写智能合约，后端采用Spring Boot框架，前端使用Vue框架。
+本项目基于FISCO-BCOS区块链,使用Solidity 0.4.25编写智能合约，后端采用Spring Boot+Mysql+Redis+RabbitMq，前端使用Vue框架。
 
-## 项目结构
-
-##### PensionSystem/
-##### ├── WebFrontUp/
-##### │ ├── views/
-##### │ ├── src/
-##### │ ├── utils/
-##### ├── WebBackUp/
-##### │ ├── .idea/
-##### │ ├── src/
-##### │ ├── pom.xml
-##### ├── contract/
-##### │ ├── MainContract.sol
-
-perl
-Copy code
 
 ## 快速开始
 
-### 前端启动
+### 区块链部署
+启动项目前请先部署区块链和搭建webase-deploy平台
 
-在 `WebFrontUp` 目录下执行以下命令安装依赖：
+### 项目启动
 
 ```shell
+在 `WebFrontUp` 目录下执行以下命令安装依赖：
 npm install
 然后启动前端服务：
 
 shell
-Copy code
 npm run dev
-后端启动
+
 使用IDEA打开 WebBackUp 目录，等待IDEA加载完毕后，运行 Application.java 启动后端服务。
 
 技术栈
