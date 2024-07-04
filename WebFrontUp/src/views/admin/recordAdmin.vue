@@ -37,6 +37,33 @@
           <el-button type="primary" plain @click="logout()">注销</el-button>
         </div>
       </el-header>
+      <el-button type="primary" plain style="margin-right: auto" @click="addRecords()">添加唱片</el-button>
+      <!--弹出的弹窗内容-->
+      <el-dialog title="编辑账号信息" v-model="dialogVisible"  center width="20%" >
+        <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
+          <el-form :inline="true">
+            <el-form-item>
+              <p>发行唱片类型：</p>
+              <el-select v-model="value" placeholder="选择唱片类型" style="width: 240px">
+                <el-option
+                    v-for="item in options()"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <p>发行唱片数量：</p>
+              <el-input v-model="recordsNum" placeholder="请输入唱片发行数量，小于10" clearable></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+        <span slot="footer" class="dialog-footer">
+              <el-button @click="dialogVisible = false">取 消</el-button>
+              <el-button @click="dialogVisible = false" type="primary" >确 定</el-button>
+            </span>
+      </el-dialog>
 
       <el-main >
         <el-scrollbar>
@@ -55,13 +82,32 @@
 
 <script>
 import request from "@/utils/request.js";
+const value = ref('')
+const options = [
+  {
+    value: 'Option1',
+    label: '类型1：JAY-Jay',
+  },
+  {
+    value: 'Option2',
+    label: '类型2：叶惠美-Jay',
+  },
+  {
+    value: 'Option3',
+    label: '类型3：启示录-G.E.M',
+  },
+]
 
 export default {
 
   data() {
     return {
       data: '',
-      records:[]
+      records:[],
+      recordsName:"",
+      recordsNum:0,
+      dialogVisible:false,
+
     };
   },
   mounted() {
@@ -72,6 +118,9 @@ export default {
     this.getAllRecords();
   },
   methods:{
+    options() {
+      return options
+    },
     logout(){
       this.$router.push('/');
     },
@@ -96,6 +145,9 @@ export default {
         this.records =res.data;
       })
     },
+    addRecords(){
+      this.dialogVisible=true;
+    }
   }
 };
 // import {

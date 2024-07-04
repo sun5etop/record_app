@@ -115,6 +115,7 @@ export default {
     logout() {
       // 实现注销逻辑，例如清除登录状态等
       // 这里可以根据具体情况进行实现
+      localStorage.clear();
       this.$router.push('/'); //返回登陆界面
       console.log('注销');
     }

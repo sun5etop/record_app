@@ -60,16 +60,28 @@
             </el-table-column>
           </el-table>
 
-          <!--弹框组件开始-----------------------start-->
-          <dialog-component
-              v-if="showDialog"
-              ref="dialogComponent"
-              :dialog-title="dialogTitle"
-              :item-info="tableItem"
-              @closeDialog="closeDialog"
-          ></dialog-component>
-          <!--弹框组件开始-----------------------end-->
         </el-scrollbar>
+
+        <!--弹出的弹窗内容-->
+        <el-dialog title="编辑账号信息" v-model="dialogVisible"  center width="20%" >
+          <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
+            <el-form :inline="true">
+              <el-form-item>
+                <p>当前用户名：ykm</p>
+                <el-input v-model="accountName" placeholder="请输入用户名" clearable></el-input>
+              </el-form-item>
+              <el-form-item>
+                <p>当前用户密码：123</p>
+                <el-input v-model="accountPW" placeholder="请输入账户密码" clearable></el-input>
+              </el-form-item>
+              <el-switch v-model="frozen" active-text="正常" inactive-text="冻结" />
+            </el-form>
+          </div>
+          <span slot="footer" class="dialog-footer">
+              <el-button @click="dialogVisible = false">取 消</el-button>
+              <el-button @click="dialogVisible = false" type="primary" >确 定</el-button>
+            </span>
+        </el-dialog>
       </el-main>
 
 
@@ -80,15 +92,16 @@
 
 <script>
 import request from "@/utils/request.js";
-import DialogComponent from "../../components/dialogComponent.vue";
 
 export default {
-  components: { DialogComponent },
   data() {
     return {
       data: '',
-      accounts:[]
-
+      accounts:[],
+      dialogVisible: false,
+      accountName: "",
+      accountPW:"",
+      frozen:"",
     };
   },
   mounted() {
@@ -97,7 +110,6 @@ export default {
       this.data = storedData;
     }
       this.getAllAccounts();
-
   },
   methods:{
     logout(){
@@ -121,17 +133,17 @@ export default {
 
     getAllAccounts(){
       request.get('/account/getAllAccounts').then((res)=>{
-        console.log(res);
-        this.accounts =res.data;
+        console.log(res.data.msg);
+        if(res.data.success)
+          this.accounts =res.data;
       })
     },
     editAccount(){
-      this.dialogTitle = "编辑人员";
-      this.showDialog = true;
-      this.$nextTick(() => {
-        this.$refs["dialogComponent"].showDialog = true;
-      })
-    }
+      console.log(this.dialogVisible);
+      this.dialogVisible = true;//显示弹窗
+      console.log(this.dialogVisible);
+
+    },
   }
 };
 // import {

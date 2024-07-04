@@ -1,9 +1,11 @@
 <template>
+  <div class="back">
   <div class="index">
     <el-container>
       <el-header><header-v></header-v></el-header>
     </el-container>
   </div>
+
 
   <div class="flex gap-2">
     <el-tag
@@ -15,6 +17,7 @@
       {{ item.label }}
     </el-tag>
   </div>
+
 
   <div class="matrix-container">
     <span class="matrix">
@@ -39,7 +42,7 @@
         <template #footer>
             <div class="footer-container" style="display: flex; justify-content: flex-end; align-items: center;">
               <el-tooltip :content=item.info effect="dark">
-                <el-button style="color: white;" color="#529b2e">详情信息</el-button>
+                <el-button style="color: white;" color="#529b2e">展示</el-button>
               </el-tooltip>
               <el-button type="primary" @click="sell(item.id)">出售</el-button>
 
@@ -47,6 +50,7 @@
         </template>
       </el-card>
     </span>
+  </div>
   </div>
 </template>
 
@@ -156,20 +160,33 @@ export default {
   margin-top: 60px;
 }
 
+.index{
+  background-color: #302d2d;
+}
+
 .matrix-container {
   //display: flex;
   margin-left: 20px;
   margin-top: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #1e1c1c;
  }
 
 
 .matrix {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
+
+.back{
+  background-color: #1e1c1c;
+  position : absolute;
+  width : 100%;
+  height : 100%;
+}
+
 
 </style>
 

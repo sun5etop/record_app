@@ -45,14 +45,17 @@ export default {
   methods:{
     login(){
         request.post('/account/login',this.loginForm).then((res)=>{
+          //console.log(res.uToken);
         if(res.code==200){
           this.$message({
             type:"success",
             message:res.msg
             })
            localStorage.setItem('accountId',this.loginForm.accountId);
-           localStorage.setItem('ownerName',res.msg);
-            console.log("登录成功，进入账户首页");
+           localStorage.setItem('ownerName',res.data.ownerName);
+           localStorage.setItem('uToken',res.uToken);
+           localStorage.setItem('uType',res.data.accountType);
+           console.log("登录成功，进入账户首页");
 /*            localStorage.setItem('userAddress',this.loginForm.address);*/
             this.$router.push('/account/accountIndex');
         }
@@ -73,7 +76,6 @@ export default {
             message:res.msg
             })
         }
-        console.log(res);
       })
 
       

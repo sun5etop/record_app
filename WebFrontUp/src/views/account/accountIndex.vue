@@ -88,8 +88,6 @@ export default {
       this.isModalVisible = false;
     }
 
-
-
   },
 
   setup() {
