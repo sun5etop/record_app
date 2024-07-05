@@ -1,9 +1,9 @@
 package com.yxj.mod.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yxj.mod.entity.Person;
+import com.yxj.mod.entity.Record;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface SecurityMapper extends BaseMapper<Person> {
+public interface SecurityMapper extends BaseMapper<Record> {
 }

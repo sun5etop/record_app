@@ -31,7 +31,7 @@ public class TestController {
     @ResponseBody
     public Map test2()
     {
-        return testService.generateOneYear("2022",null);
+        return testService.generateOneYear("2022");
     }
 
 }

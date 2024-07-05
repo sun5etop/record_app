@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yxj.mod.dao.RecordInfoMapper;
 import com.yxj.mod.dao.RecordMapper;
 import com.yxj.mod.dao.SecurityMapper;
-import com.yxj.mod.entity.Person;
 import com.yxj.mod.util.HttpUtils;
 import com.yxj.mod.entity.Record;
 import com.yxj.mod.entity.RecordInfo;
@@ -41,6 +40,12 @@ public class SecurityService implements CommandLineRunner {
         maxDropId++;
     }
 
+    /**
+     * 发行唱片
+     * @param num 唱片发行数量
+     * @param type 唱片发行类型
+     * @return
+     */
     public Map addRecords(int num, int type) {
         Map result = new HashMap();
         //唱片发行日期
@@ -82,26 +87,6 @@ public class SecurityService implements CommandLineRunner {
 
     }
 
-    public Map addPerson(String userAddress, Person person) {
-        Map result = new HashMap();
-        List funcParam = new ArrayList();
-        funcParam.add(person.getId());
-        funcParam.add(person.getAge());
-        funcParam.add(person.getName());
-        JSONObject data = (JSONObject) JSONObject.parse(HttpUtils.commonReq(userAddress,"addPerson",funcParam));
-        if (!(Boolean)data.get("statusOK")) {
-            result.put("code","500");
-            result.put("msg",data.get("message"));
-            result.put("data",null);
-            return result;
-        } else  {
-            result.put("code","200");
-            result.put("msg","添加成功");
-            result.put("data",null);
-            securityMapper.insert(person);
-            return result;
-        }
-    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -118,9 +103,6 @@ public class SecurityService implements CommandLineRunner {
         List<Record> records = recordMapper.selectList(queryWrapper);
         int minId = Integer.MAX_VALUE;
         for (Record record : records) {
-            if(record.getRecordId()==0) {
-                continue;
-            }
             if (record.getRecordId() < minId) {
                 minId = record.getRecordId();
             }

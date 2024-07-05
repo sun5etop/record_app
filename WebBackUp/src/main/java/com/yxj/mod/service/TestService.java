@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yxj.mod.dao.TestMapper;
-import com.yxj.mod.entity.Company;
-import com.yxj.mod.entity.Insurance;
 import com.yxj.mod.entity.TestEntity;
 import com.yxj.mod.util.HttpUtils;
 import com.yxj.mod.util.Result;
@@ -24,7 +22,7 @@ public class TestService {
     public List<TestEntity> getAllTest(){
         return testMapper.selectList(null);
     }
-    public Map generateOneYear(String time, Insurance insurance) {
+    public Map generateOneYear(String time) {
         Map<String, Object> oneYear = new HashMap<>();
         //time是202406/截取年份
         String year = time.substring(0, 4);

@@ -65,17 +65,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // 获取token
   const token = localStorage.getItem('uToken')
-  // console.log("token");
-  // console.log(token);
-  // if (to.path === '/') {
-  //   token && next(from.fullPath || '/account/accountIndex')
-  //   next()
-  // } else {
-  //   // 判断有木有token
-  //   token && next()
-  //   next('/')
-  // }
-  if (to.path === '/') {
+  if (to.path === '/'||to.path === '/register') {
     if (token) {
       // 避免无限重定向
       if (from.path === '/account/accountIndex') {

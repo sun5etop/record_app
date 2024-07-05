@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd36f2bf-bbb5-45e4-952b-85ff494dfa58" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/RedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/util/RedisUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/config/InterceptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/interceptor/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/interceptor/TokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/SecurityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/java/com/ooyyh/top/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/src/test/java/com/ooyyh/top/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/src/test/java/com/ooyyh/top/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/config/InterceptorConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/config/InterceptorConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/interceptor/TokenInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/interceptor/TokenInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/SecurityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/SecurityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebBackUp/target/classes/com/ooyyh/top/service/TransactionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/components/dialogComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/account/repository.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/account/repository.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/account/transaction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/account/transaction.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/admin/adminIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/admin/adminIndex.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/admin/recordAdmin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/admin/recordAdmin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebFrontUp/src/views/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/WebFrontUp/src/views/login/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/MainContract.sol" beforeDir="false" />
-    </list>
+    <list default="true" id="dd36f2bf-bbb5-45e4-952b-85ff494dfa58" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +40,7 @@
   "keyToString": {
     "JUnit.AccountTest.acceptTransaction.executor": "Debug",
     "JUnit.AccountTest.addAccountRecord.executor": "Run",
+    "JUnit.AccountTest.addRecordsTest (1).executor": "Debug",
     "JUnit.AccountTest.addRecordsTest.executor": "Run",
     "JUnit.AccountTest.drop.executor": "Run",
     "JUnit.AccountTest.getAccountAllRecordsTest.executor": "Debug",
@@ -79,6 +51,13 @@
     "JUnit.AccountTest.registermaijiaTest.executor": "Run",
     "JUnit.AccountTest.saveTransaction.executor": "Debug",
     "JUnit.AccountTest.saveTransactionTest.executor": "Run",
+    "JUnit.AccountTest.show.executor": "Run",
+    "JUnit.AccountTest.testSR.executor": "Run",
+    "JUnit.AccountTest.testSend.executor": "Run",
+    "JUnit.AccountTest.testSendAndReceive.executor": "Run",
+    "JUnit.RabbitmqApplicationTests.contextLoads.executor": "Run",
+    "JUnit.RabbitmqApplicationTests.executor": "Run",
+    "JUnit.RabbitmqApplicationTests.testSend.executor": "Run",
     "Maven.backend [clean].executor": "Run",
     "Maven.backend [deploy].executor": "Run",
     "Maven.backend [install].executor": "Run",
@@ -102,7 +81,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "settings.editor.selected.configurable": "File.Encoding",
     "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -126,82 +105,82 @@
       <recent name="com.ooyyh.top.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.BackendApplication">
-    <configuration name="AccountTest.addAccountRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AccountTest.testSR">
+    <configuration name="AccountTest.show" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="PATTERN" value="com.yxj.mod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
-      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
-      <option name="METHOD_NAME" value="addAccountRecord" />
+      <option name="PACKAGE_NAME" value="com.yxj.mod" />
+      <option name="MAIN_CLASS_NAME" value="com.yxj.mod.AccountTest" />
+      <option name="METHOD_NAME" value="show" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountTest.addRecordsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountTest.testSR" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="PATTERN" value="com.yxj.mod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
-      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
-      <option name="METHOD_NAME" value="addRecordsTest" />
+      <option name="PACKAGE_NAME" value="com.yxj.mod" />
+      <option name="MAIN_CLASS_NAME" value="com.yxj.mod.AccountTest" />
+      <option name="METHOD_NAME" value="testSR" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountTest.drop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountTest.testSend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="PATTERN" value="com.yxj.mod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
-      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
-      <option name="METHOD_NAME" value="drop" />
+      <option name="PACKAGE_NAME" value="com.yxj.mod" />
+      <option name="MAIN_CLASS_NAME" value="com.yxj.mod.AccountTest" />
+      <option name="METHOD_NAME" value="testSend" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountTest.testSendAndReceive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="PATTERN" value="com.yxj.mod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
-      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
-      <option name="METHOD_NAME" value="registerTest" />
+      <option name="PACKAGE_NAME" value="com.yxj.mod" />
+      <option name="MAIN_CLASS_NAME" value="com.yxj.mod.AccountTest" />
+      <option name="METHOD_NAME" value="testSendAndReceive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountTest.registermaijiaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RabbitmqApplicationTests.testSend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ooyyh.top.*" />
+          <option name="PATTERN" value="com.yxj.mod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ooyyh.top" />
-      <option name="MAIN_CLASS_NAME" value="com.ooyyh.top.AccountTest" />
-      <option name="METHOD_NAME" value="registermaijiaTest" />
+      <option name="PACKAGE_NAME" value="com.yxj.mod" />
+      <option name="MAIN_CLASS_NAME" value="com.yxj.mod.RabbitmqApplicationTests" />
+      <option name="METHOD_NAME" value="testSend" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -215,20 +194,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AccountTest.addAccountRecord" />
-      <item itemvalue="JUnit.AccountTest.addRecordsTest" />
-      <item itemvalue="JUnit.AccountTest.drop" />
-      <item itemvalue="JUnit.AccountTest.registermaijiaTest" />
-      <item itemvalue="JUnit.AccountTest.registerTest" />
+      <item itemvalue="JUnit.AccountTest.testSR" />
+      <item itemvalue="JUnit.AccountTest.testSend" />
+      <item itemvalue="JUnit.AccountTest.testSendAndReceive" />
+      <item itemvalue="JUnit.AccountTest.show" />
+      <item itemvalue="JUnit.RabbitmqApplicationTests.testSend" />
       <item itemvalue="Spring Boot.BackendApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountTest.addRecordsTest" />
-        <item itemvalue="JUnit.AccountTest.drop" />
-        <item itemvalue="JUnit.AccountTest.registerTest" />
-        <item itemvalue="JUnit.AccountTest.addAccountRecord" />
-        <item itemvalue="JUnit.AccountTest.registermaijiaTest" />
+        <item itemvalue="JUnit.AccountTest.testSR" />
+        <item itemvalue="JUnit.AccountTest.testSendAndReceive" />
+        <item itemvalue="JUnit.AccountTest.testSend" />
+        <item itemvalue="JUnit.AccountTest.show" />
+        <item itemvalue="JUnit.RabbitmqApplicationTests.testSend" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +232,10 @@
       <workItem from="1719485616659" duration="54431000" />
       <workItem from="1719546777641" duration="9832000" />
       <workItem from="1719752930303" duration="27315000" />
-      <workItem from="1720011578327" duration="28773000" />
+      <workItem from="1720011578327" duration="45810000" />
+      <workItem from="1720113718510" duration="279000" />
+      <workItem from="1720114000231" duration="67000" />
+      <workItem from="1720114080863" duration="5775000" />
     </task>
     <servers />
   </component>
@@ -280,14 +262,19 @@
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/yxj/mod/service/TransactionService.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="103" />
+          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/yxj/mod/service/AccountService.java</url>
+          <line>209</line>
+          <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/yxj/mod/service/SecurityService.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="105" />
+          <url>file://$PROJECT_DIR$/WebBackUp/src/test/java/com/yxj/mod/AccountTest.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/yxj/mod/service/AccountService.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/WebBackUp/src/main/java/com/yxj/mod/interceptor/TokenInterceptor.java</url>

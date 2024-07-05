@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 唱片掉落监听器
+ * 在这里实现redis->数据库和区块链的同步
+ */
 @Service
 public class RabbitmqListenner implements MessageListener {
 
-    //@Autowired
-    //private SeckillService ss;
 
     @Override
     public void onMessage(Message msg) {

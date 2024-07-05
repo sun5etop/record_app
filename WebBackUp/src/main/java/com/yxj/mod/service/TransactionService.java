@@ -137,7 +137,7 @@ public class TransactionService {
 
 
 
-
+    //获得当前账户所有的交易
     public Map getMyTransaction(String accountId) throws UnsupportedEncodingException {
         QueryWrapper<Transaction> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("from_account_id",accountId);
@@ -149,6 +149,7 @@ public class TransactionService {
         }
     }
 
+    //获取系统所有的交易
     public Map getAllTransactions(){
         QueryWrapper<Transaction> queryWrapper = new QueryWrapper<>();
         List<Transaction> transactions = transactionMapper.selectList(queryWrapper);

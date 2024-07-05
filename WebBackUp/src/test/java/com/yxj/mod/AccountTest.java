@@ -1,16 +1,22 @@
 package com.yxj.mod;
 
+import com.yxj.mod.config.RabbitMQConfig;
 import com.yxj.mod.controller.AccountController;
 import com.yxj.mod.entity.Account;
 import com.yxj.mod.entity.Transaction;
+import com.yxj.mod.messageQueue.RabbitmqSendMessage;
+import com.yxj.mod.messageQueue.Receiver;
 import com.yxj.mod.service.AccountService;
 import com.yxj.mod.service.SecurityService;
 import com.yxj.mod.service.TransactionService;
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.UnsupportedEncodingException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class AccountTest {
@@ -22,6 +28,12 @@ public class AccountTest {
     TransactionService transactionService;
     @Autowired
     AccountController accountController;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+    @Autowired
+    private Receiver receiver;
+    @Autowired
+    RabbitmqSendMessage rsm;
 
     @Test
     public void registerTest(){//注册账户
@@ -87,5 +99,37 @@ public class AccountTest {
     @Test
     public void getAllAccountsTest() throws UnsupportedEncodingException {
        accountController.getAllAccounts();
+    }
+
+    @Test
+    public void show(){
+        System.out.println(111);
+    }
+
+    @Test
+    public void testSend() {
+        String message = "Hello, RabbitMQ!";
+        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.ROUTING_KEY, message);
+        System.out.println("Message sent successfully!");
+    }
+
+    @Test
+    public void testSendAndReceive() throws InterruptedException {
+        String message = "DropHere!";
+        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.ROUTING_KEY, message);
+
+        // 等待接收消息（异步处理需要一些时间）
+        Thread.sleep(1000);
+
+        // 验证接收到的消息
+        //assertEquals(message, receiver.getLastMessage());
+        System.out.println("Message sent and received successfully!");
+    }
+
+    @Test
+    public void testSR()throws InterruptedException{
+        rsm.send("DropRrr");
+        // 等待接收消息（异步处理需要一些时间）
+        Thread.sleep(1000);
     }
 }

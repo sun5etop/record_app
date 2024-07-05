@@ -139,10 +139,20 @@
             <artifactId>jedis</artifactId>
             <version>3.7.0</version>
         </dependency>
+
+<!--        rabbitMQ依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+
+<!--        redission锁-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.17.6</version>
+        </dependency>
+
 
     </dependencies>
 

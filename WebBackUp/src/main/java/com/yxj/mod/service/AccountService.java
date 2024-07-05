@@ -32,6 +32,11 @@ public class AccountService {
     @Autowired
     RedisService redisService;
 
+    /**
+     * 用户注册
+     * @param account
+     * @return
+     */
     public Map register(Account account) {
         // switch account.getUserType 1账户 2掉落器 3交易器
         QueryWrapper<Account> queryWrapper = new QueryWrapper<>();
@@ -69,6 +74,8 @@ public class AccountService {
                 accountMapper.insert(account);
                 return result;
             }
+
+
         } else if ("2".equals(account.getAccountType())) {
             //todo
             String data = HttpUtils.commonReq("regLaodongRoles", funcParam);
@@ -112,6 +119,11 @@ public class AccountService {
     }
 
 
+    /**
+     * 用户登录
+     * @param account
+     * @return
+     */
     public Map login(Account account) {
         Map result = new HashMap();
         QueryWrapper<Account> queryWrapper = new QueryWrapper<>();
@@ -167,8 +179,15 @@ public class AccountService {
         return Result.success(records);
     }
 
+
+    /**
+     * 为账户掉落唱片
+     * @param token
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     public Map addAccountRecord(String token) throws UnsupportedEncodingException {
-        int _recordId=securityService.getMaxDropId()+1;
+        int _recordId=securityService.getMaxDropId();
 
         String tokenT = URLDecoder.decode(token, "UTF-8");
         QueryWrapper<Account> queryWrapper = new QueryWrapper<>();
@@ -215,12 +234,22 @@ public class AccountService {
             return result;
         }
     }
+
+    /**
+     * 获得所有的账户
+     * @return
+     */
     public Map getAllAccounts(){
         QueryWrapper<Account> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account_type","1");
         List<Account> accounts = accountMapper.selectList(queryWrapper);
         return Result.success(accounts);
     }
+
+    /**
+     * 获得所有的唱片
+     * @return
+     */
     public Map getAllRecords(){
         QueryWrapper<Record> queryWrapper = new QueryWrapper<>();
         List<Record> records = recordMapper.selectList(queryWrapper);
