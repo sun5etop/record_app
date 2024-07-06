@@ -1,7 +1,6 @@
 package com.yxj.mod.config;
 
 import com.yxj.mod.messageQueue.RabbitmqListenner;
-import com.yxj.mod.messageQueue.Receiver;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

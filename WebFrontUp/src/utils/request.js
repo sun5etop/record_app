@@ -18,7 +18,7 @@ request.interceptors.request.use(config => {
 	//请求头添加token
 	let uToken=localStorage.getItem("uToken");
 	if(uToken){
-		config.headers['u-token']=uToken;
+		config.headers['utoken']=uToken;
 	}
 	return config
 },	error =>{

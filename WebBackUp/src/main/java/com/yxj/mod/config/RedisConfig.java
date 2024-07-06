@@ -9,6 +9,7 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @EnableCaching  // 开启缓存
@@ -62,7 +63,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory());  // 设置连接工厂
         template.setKeySerializer(new StringRedisSerializer());  // 设置键的序列化器
-        template.setValueSerializer(new StringRedisSerializer()); // 设置值的序列化器
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer()); // 设置值的序列化器
         return template;
     }
 }

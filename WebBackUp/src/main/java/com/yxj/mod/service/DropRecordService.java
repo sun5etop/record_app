@@ -14,10 +14,10 @@ import com.yxj.mod.util.HttpUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  * 参考秒杀系统，用了redis和rabbitMQ消息队列
  */
 @Service
-public class DropRecordService {
+public class DropRecordService{
     @Autowired
     SecurityService securityService;
 
@@ -45,17 +45,53 @@ public class DropRecordService {
     @Autowired
     RedisService redisService;
 
+    public Map pbDrop(String utoken){
+        //先根据token取出用户信息
+        String jsonAccount = (String)redisService.getValue(utoken);
+        Account account=JSONUtil.toBean(jsonAccount,Account.class);
+
+        // 生成一个 0.0 到 1.0 之间的随机数
+        Random random = new Random();
+        double randomValue = random.nextDouble();
+
+        Map result = new HashMap();
+        if(randomValue<0.999){
+            String jsonRecord=DropRecord(account.getAccountId());
+            if(jsonRecord.charAt(0)=='{') {
+                Record record = JSONUtil.toBean(jsonRecord, Record.class);
+
+                result.put("code", "200");
+                result.put("msg", "成功掉落唱片，id：" + record.getRecordId());
+                result.put("data", record.getRecordType());
+            }
+            else{
+                result.put("code", "201");
+                result.put("msg", jsonRecord);
+                result.put("data", null);
+            }
+        }else{
+            result.put("code", "201");
+            result.put("msg", "没有掉落唱片~");
+            result.put("data", null);
+        }
+        return result;
+    }
 
     /**
-     * 初始化 ，将mysql中的唱片信息缓存到redis中
+     * 每次登录的时候调用该方法
+     * 初始化 ，将mysql中可掉落的唱片信息缓存到redis中
      * @return
      */
-    public List<Record> querySeckill() {
-        List<Record> list = (List<Record>) redisService.getValue("Records");
-        if(list==null) {
-            list = recordMapper.selectList(null);
-            redisService.setValueWithExpiry("Records", list, 60*30, TimeUnit.SECONDS);
-        }
+    public List<Record> loadRecords() {
+//        List<Record> list = redisService.getList("Records");
+//        if(list.isEmpty()) {
+
+            int maxId=securityService.getMaxDropId();
+            QueryWrapper<Record> queryWrapper = new QueryWrapper<>();
+            queryWrapper.gt("record_id",maxId-1);
+            List<Record>  list = recordMapper.selectList(queryWrapper);
+            redisService.setList("Records",list);
+//        }
         return list;
     }
 
@@ -65,7 +101,7 @@ public class DropRecordService {
      */
     public void decreaseRecord(String id) {
         int recordID = Integer.parseInt(id);
-        List<Record> list =   (List<Record>) redisService.getValue("Records");
+        List<Record> list = redisService.getList("Records");
         if (list!=null)
         {
             for (Record record : list)
@@ -74,7 +110,7 @@ public class DropRecordService {
                 {
                     list.remove(record);
                     //写回redis
-                    redisService.setValueWithExpiry("Records", list, 60*30,TimeUnit.SECONDS);
+                    redisService.setListExpire("Records", list, 60*30,TimeUnit.SECONDS);
                     return ;
                 }
             }
@@ -87,7 +123,7 @@ public class DropRecordService {
      * @return
      */
     public Record findRecord(String Sid) {
-        List<Record> list =   (List<Record>) redisService.getValue("Records");
+        List<Record> list = redisService.getList("Records");
         int id = Integer.parseInt(Sid);
         for(Record record:list) {
             if(record.getRecordId()==id) {
@@ -99,22 +135,25 @@ public class DropRecordService {
 
     /**
      * 唱片掉落
-     * @param sid
+     * @param
      * @param accountId
      * @return
      */
-    public String DropRecord(String sid, String accountId) {
+    public String DropRecord(String accountId) {
+        //对Records上锁
+        RLock rLock = redissonClient.getLock("lock");
+        rLock.lock();
+
+        int recordId=securityService.getMaxDropId();
+        String sid= String.valueOf(recordId);
+
         String key = accountId + ":" + sid;
-        int recordId = Integer.parseInt(sid);
 
         Long value = (Long) redisService.getValue(key);
         if (value != null) {
-            return "exist";
+            return "已有该次掉落记录！";
         }
 
-        //对Records上锁
-        RLock rLock = redissonClient.getLock("Records");
-        rLock.lock();
 
         Record record = findRecord(sid);
         if (record!=null) {
@@ -133,11 +172,11 @@ public class DropRecordService {
             rsm.send(json); // 异步上链
             rLock.unlock(); // 解锁
 
-            return "success";
+            return String.valueOf(json);
 
         } else {
             rLock.unlock();
-            return "failed";
+            return "failed,Record==null!";
         }
     }
 
@@ -147,6 +186,7 @@ public class DropRecordService {
      */
     public void saveRecord(String json) {
         //更新数据库
+        securityService.plusDropId();
         Record record = JSON.parseObject(json, Record.class);
         recordMapper.updateById(record);
 
@@ -164,8 +204,6 @@ public class DropRecordService {
 
         JSONObject response = (JSONObject) JSONObject.parse(HttpUtils.commonReq("addRecordToAccount",funcParams));
 
-        //最后递增掉落id
-        securityService.plusDropId();
     }
 
 

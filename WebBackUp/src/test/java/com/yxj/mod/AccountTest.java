@@ -5,14 +5,15 @@ import com.yxj.mod.controller.AccountController;
 import com.yxj.mod.entity.Account;
 import com.yxj.mod.entity.Transaction;
 import com.yxj.mod.messageQueue.RabbitmqSendMessage;
-import com.yxj.mod.messageQueue.Receiver;
 import com.yxj.mod.service.AccountService;
+import com.yxj.mod.service.RedisService;
 import com.yxj.mod.service.SecurityService;
 import com.yxj.mod.service.TransactionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.io.UnsupportedEncodingException;
 
@@ -31,9 +32,11 @@ public class AccountTest {
     @Autowired
     RabbitTemplate rabbitTemplate;
     @Autowired
-    private Receiver receiver;
-    @Autowired
     RabbitmqSendMessage rsm;
+    @Autowired
+    RedisTemplate redisTemplate;
+    @Autowired
+    RedisService redisService;
 
     @Test
     public void registerTest(){//注册账户
@@ -53,9 +56,11 @@ public class AccountTest {
     @Test
     public void addRecordsTest(){//发行唱片
 
-        securityService.addRecords(3,1);
-        securityService.addRecords(3,2);
-        securityService.addRecords(3,3);
+        for(int i=0;i<3;i++){
+            securityService.addRecords(1,1);
+            securityService.addRecords(1,2);
+            securityService.addRecords(1,3);
+        }
     }
     @Test
     public  void addAccountRecord() throws UnsupportedEncodingException {// 后端掉落record_id给用户，
@@ -131,5 +136,11 @@ public class AccountTest {
         rsm.send("DropRrr");
         // 等待接收消息（异步处理需要一些时间）
         Thread.sleep(1000);
+    }
+
+    @Test
+    public void redis(){
+        redisService.deleteValue("id123:13");
+        redisService.deleteValue("Records");
     }
 }

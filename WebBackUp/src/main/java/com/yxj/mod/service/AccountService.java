@@ -1,5 +1,6 @@
 package com.yxj.mod.service;
 
+import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -31,6 +32,9 @@ public class AccountService {
 
     @Autowired
     RedisService redisService;
+
+    @Autowired
+    DropRecordService dropRecordService;
 
     /**
      * 用户注册
@@ -137,11 +141,13 @@ public class AccountService {
                     result.put("msg", "登陆成功："+info.getOwnerName());
                     result.put("data", info);
 
+                    dropRecordService.loadRecords();
+
                     String token = UUID.randomUUID().toString();
 
                     //存到redis，并设置30分钟过期时间
                     //RedisUtils.INSTANCE.set(token, JSON.toJSONString(info),60*30 );
-                    redisService.setValueWithExpiry(token, JSON.toJSONString(info),60*30, TimeUnit.SECONDS);
+                    redisService.setValueWithExpiry(token, JSONUtil.toJsonStr(info),60*30, TimeUnit.SECONDS);
 
                     result.put("uToken", token);
                     return result;
@@ -182,6 +188,7 @@ public class AccountService {
 
     /**
      * 为账户掉落唱片
+     * token是用户id
      * @param token
      * @return
      * @throws UnsupportedEncodingException
@@ -219,8 +226,6 @@ public class AccountService {
         }
     }
     public Map halfRandomDrop(String token)throws UnsupportedEncodingException{
-        int available= securityService.getMaxRecordId()-securityService.getMaxDropId();
-        //bool
         Random random = new Random();
         // 生成一个 0.0 到 1.0 之间的随机数
         double randomValue = random.nextDouble();

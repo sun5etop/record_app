@@ -25,4 +25,8 @@ public class Record {
         this.publishTime=date;
         this.recordOwnerId=recordOwnerId;
     }
+
+    public Record(){
+
+    }
 }

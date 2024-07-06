@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,6 +20,8 @@ public class RedisService {
      */
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+
+
 
     // 作用: 向 Redis 中存储一个键值对
     public void setValue(String key, Object value) {
@@ -39,5 +42,22 @@ public class RedisService {
     // 作用: 从 Redis 中删除指定键及其对应的值
     public void deleteValue(String key) {
         redisTemplate.delete(key);
+    }
+
+    //将数组存入list里
+    public void setList(String key, List list){
+        redisTemplate.opsForList().rightPushAll(key, list);
+    }
+
+    //将数组存入list里，带过期时间
+    public void setListExpire(String key,List list,int time,TimeUnit expire){
+        redisTemplate.opsForList().rightPushAll(key, list);
+        // 设置过期时间为1小时
+        redisTemplate.expire("myList", time, expire);
+    }
+
+    //获得list
+    public List getList(String key){
+        return redisTemplate.opsForList().range(key, 0, -1);
     }
 }

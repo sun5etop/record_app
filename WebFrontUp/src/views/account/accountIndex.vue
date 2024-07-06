@@ -17,7 +17,10 @@
 <!--    </Modal>-->
   </div>
   <div class="recordPicture">
-    <img  class="Img" src="../../assets/record.jpg" @click="dropRecords" alt="点击掉落"/>
+    <img  class="Img"
+          :class="{ 'click-animation': isClicked }"
+          src="../../assets/record.jpg"
+          @click="clickImg" alt="点击掉落"/>
   </div>
 </template>
 
@@ -31,6 +34,8 @@ export default {
   data(){
     // var imgUrl;
     return{
+      isClicked: false,
+      isClickable:true,//防抖标志位
       isModalVisible: false,
       modalTitle: '掉落唱片！',
       // modalText: '金色传说！',
@@ -43,9 +48,21 @@ export default {
     Modal,
   },
   methods:{
+    clickImg(){
+      if(this.isClickable) {
+        this.isClicked = true;
+        this.isClickable = false;
+        // 移除动画类以便下一次点击时能够重新添加
+        this.dropRecords();
+        setTimeout(() => {
+          this.isClickable = true;
+          this.isClicked = false;
+        }, 700); // 与动画持续时间匹配}
+      }
+    },
     dropRecords() {
       console.log('点击了图片，调用概率函数，是否能够实现掉落呢！');
-      request.get('/account/halfRandomDrop').then((res)=>{
+      request.get('/drop/dropRecord').then((res)=>{
         // 201未成功
         if(res.code!=201){
           this.$message({
@@ -75,8 +92,6 @@ export default {
           })
         }
       })
-      // 在这里调用你的函数或者执行你的逻辑
-      // this.myFunction();
     },
 
     showRecord() {
@@ -124,5 +139,20 @@ export default {
     height: 100vh; /* 确保容器高度铺满视口 */
   }
 
+  @keyframes click-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .click-animation {
+    animation: click-animation 0.5s ease-in-out;
+  }
 
 </style>

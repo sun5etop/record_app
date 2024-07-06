@@ -73,7 +73,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
     }
 
     //2.拿到请求头里面的token（如果是第一次登录，那么是没有请求头的）
-    String token = request.getHeader("u-token");
+    String token = request.getHeader("utoken");
     if(token==null){
         response.setContentType("application/json; charset=utf-8");
 
